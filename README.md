@@ -27,3 +27,6 @@ Set up the pre-commit environment
 pre-commit install
 ```
 What are [pre-commits](https://pre-commit.com/). To understand each pre-commit hook, refer to its respective documentation.
+
+## Contributing
+Read contribution [guidelines](CONTRIBUTING.md).
