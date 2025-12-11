@@ -1,0 +1,54 @@
+repos:
+  - repo: local 
+    hooks:
+      # Run the linter.
+      - id: ruff
+        name: ruff
+        entry: ruff check --force-exclude 
+        language: python
+        args: [ --fix ]
+        types_or: [python, pyi, jupyter]
+      # Run the formatter.
+      - id: ruff-format
+        name: ruff-format
+        entry: ruff format --force-exclude
+        language: python
+        types_or: [python, pyi, jupyter]
+  - repo: local 
+    hooks:
+    - id: pyright
+      name: pyright
+      entry: pyright
+      language: python
+      types_or: [python, pyi, jupyter]
+      additional_dependencies: ["pycurl"]
+  - repo: local 
+    hooks:
+      - id: docstr-coverage
+        name: docstr-coverage
+        entry: docstr-coverage
+        language: python
+        args: ["--verbose", "2", "--accept-empty"]
+        pass_filenames: false
+  - repo: local
+    hooks:
+      - id: wily
+        name: wily
+        entry: wily diff
+        verbose: true
+        language: python
+        additional_dependencies: [wily]
+  - repo: local 
+    hooks:
+      - id: dead
+        name: dead
+        entry: dead
+        verbose: true
+        language: python
+        pass_filenames: false
+  - repo: local 
+    hooks:
+      - id: bandit
+        name: bandit
+        entry: bandit
+        language: python
